@@ -9,7 +9,7 @@ module.exports = {
 
         const carry_emoji = ":one:";
         const mid_emoji = ":two:";
-        const offlane_emoji = ":three";
+        const offlane_emoji = ":three:";
 
         let embed = new Discord.MessageEmbed()
             .setColor('#e42643')
