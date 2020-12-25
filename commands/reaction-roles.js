@@ -22,13 +22,11 @@ module.exports = {
                 + `${offlane_emoji} for position 3 (Offlane)\n`
                 + `${support_emoji} for positions 4 & 5 (Supports)`);
         
-        if (message.channel.id === channel) {
-            let messageEmbed = await message.channel.send(embed);
-            messageEmbed.react(carry_emoji);
-            messageEmbed.react(mid_emoji);
-            messageEmbed.react(offlane_emoji);
-            messageEmbed.react(support_emoji);
-        }
+        let messageEmbed = await message.channel.send(embed);
+        messageEmbed.react(carry_emoji);
+        messageEmbed.react(mid_emoji);
+        messageEmbed.react(offlane_emoji);
+        messageEmbed.react(support_emoji);
 
         client.on('messageReactionAdd', async (reaction, user) => {
             if (reaction.message.partial) await reaction.message.fetch();
