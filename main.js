@@ -33,6 +33,8 @@ client.on('message', msg => {
 
     if (command === 'faq') client.commands.get('faq').execute(msg,args);
 
+    if (command == 'reactionroles') client.commands.get('reaction-roles').execute(msg,args,Discord,client);
+
   });
 
 
