@@ -3,7 +3,7 @@ module.exports = {
     description: "Gives you the role based on the reaction" ,
     async execute(message , args , Discord , client) {
         const channel = "792085551909568542";
-        const core_roles =  message.guild.roles.cache.find(role => role.name === "Core roles ( Carry Mid Offlane)");
+        const core_roles =  message.guild.roles.cache.find(role => role.name === "Test core");
         const support_roles = message.guild.roles.cache.find(role => role.name === "Support Roles (Support and Hard Support)");
         const flex_roles = message.guild.roles.cache.find(role => role.name === "Jack of all trades (core and support)");
 
