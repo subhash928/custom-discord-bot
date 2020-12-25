@@ -33,8 +33,6 @@ client.on('message', msg => {
 
     if (command === 'faq') client.commands.get('faq').execute(msg,args);
 
-    let user = msg.guild.members.random();
-
   });
 
 
