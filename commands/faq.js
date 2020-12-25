@@ -3,6 +3,6 @@ module.exports = {
     description : "faq random user" ,
     execute (msg , args) {
         let user = msg.guild.members.cache.random();
-        msg.channel.send(`Hey ${user.user}, Fuck You`);
+        msg.channel.send(`Hey ${user.user}, Fuck You!`);
     }
 }
