@@ -7,9 +7,9 @@ module.exports = {
         const mid = message.guild.roles.cache.find(role => role.name === "Mid");
         const offlane = message.guild.roles.cache.find(role => role.name === "Offlane");
 
-        const carry_emoji = ":one:";
-        const mid_emoji = ":two:";
-        const offlane_emoji = ":three:";
+        const carry_emoji = "👊";
+        const mid_emoji = "✊";
+        const offlane_emoji = "💪";
 
         let embed = new Discord.MessageEmbed()
             .setColor('#e42643')
@@ -19,7 +19,7 @@ module.exports = {
                 + `${mid_emoji} for positions 2 (Mid)\n`
                 + `${offlane_emoji} for position 3 (Offlane)`);
         
-        let messageEmbed = await message.channel.send(embed);
+        if (message.channel.id === channel) let messageEmbed = await message.channel.send(embed);
         messageEmbed.react(carry_emoji);
         messageEmbed.react(mid_emoji);
         messageEmbed.react(offlane_emoji);
