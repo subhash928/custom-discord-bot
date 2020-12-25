@@ -3,26 +3,26 @@ module.exports = {
     description: "Gives you the role based on the reaction" ,
     async execute(message , args , Discord , client) {
         const channel = "792085551909568542";
-        const core_roles =  message.guild.roles.cache.find(role => role.name === "Carry");
-        const support_roles = message.guild.roles.cache.find(role => role.name === "Mid");
-        const flex_roles = message.guild.roles.cache.find(role => role.name === "Offlane");
+        const carry =  message.guild.roles.cache.find(role => role.name === "Carry");
+        const mid = message.guild.roles.cache.find(role => role.name === "Mid");
+        const offlane = message.guild.roles.cache.find(role => role.name === "Offlane");
 
-        const core_roles_emoji = "👊";
-        const support_roles_emoji = "👍";
-        const flex_roles_emoji = "✌️";
+        const carry_emoji = ":one:";
+        const mid_emoji = ":two:";
+        const offlane_emoji = ":three";
 
         let embed = new Discord.MessageEmbed()
             .setColor('#e42643')
             .setTitle('Choose the role you play!')
-            .setDescription('Choose from these emoji for their corresponding roles!\n\n'
-                + `${core_roles_emoji} for positions 1,2 and 3\n`
-                + `${support_roles_emoji} for positions 4 and 5\n`
-                + `${flex_roles_emoji} for flex role`);
+            .setDescription('Choose from these emoji for their corresponding position!\n\n'
+                + `${carry_emoji} for position 1 (Carry)\n`
+                + `${mid_emoji} for positions 2 (Mid)\n`
+                + `${offlane_emoji} for position 3 (Offlane)`);
         
         let messageEmbed = await message.channel.send(embed);
-        messageEmbed.react(core_roles_emoji);
-        messageEmbed.react(support_roles_emoji);
-        messageEmbed.react(flex_roles_emoji);
+        messageEmbed.react(carry_emoji);
+        messageEmbed.react(mid_emoji);
+        messageEmbed.react(offlane_emoji);
 
         client.on('messageReactionAdd', async (reaction, user) => {
             if (reaction.message.partial) await reaction.message.fetch();
@@ -31,14 +31,14 @@ module.exports = {
             if (!reaction.message.guild) return;
  
             if (reaction.message.channel.id == channel) {
-                if (reaction.emoji.name === core_roles_emoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(core_roles);
+                if (reaction.emoji.name === carry_emoji) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(carry);
                 }
-                if (reaction.emoji.name === support_roles_emoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(support_roles);
+                if (reaction.emoji.name === mid_emoji) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(mid);
                 }
-                if (reaction.emoji.name === flex_roles_emoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(flex_roles);
+                if (reaction.emoji.name === offlane_emoji) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(offlane);
                 }
             } else {
                 return;
@@ -55,14 +55,14 @@ module.exports = {
  
  
             if (reaction.message.channel.id == channel) {
-                if (reaction.emoji.name === core_roles_emoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(core_roles);
+                if (reaction.emoji.name === carry_emoji) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(carry);
                 }
-                if (reaction.emoji.name === support_roles_emoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(support_roles);
+                if (reaction.emoji.name === mid_emoji) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(mid);
                 }
-                if (reaction.emoji.name === flex_roles_emoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(flex_roles);
+                if (reaction.emoji.name === offlane_emoji) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(offlane);
                 }
             } else {
                 return;
