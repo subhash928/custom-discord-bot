@@ -18,7 +18,7 @@ module.exports = {
             .setTitle('Choose the role you play!')
             .setDescription('Choose from these emoji for their corresponding position!\n\n'
                 + `${carry_emoji} for position 1 (Carry)\n`
-                + `${mid_emoji} for positions 2 (Mid)\n`
+                + `${mid_emoji} for position 2 (Mid)\n`
                 + `${offlane_emoji} for position 3 (Offlane)\n`
                 + `${support_emoji} for positions 4 & 5 (Supports)`);
         
